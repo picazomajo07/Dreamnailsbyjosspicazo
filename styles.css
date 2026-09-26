@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+    --color-primario: #081d3a;      /* Azul noche del logotipo */
+    --color-dorado: #9c8866;        /* Tono oro / arena de los acentos */
+    --color-dorado-claro: #cfc2ad;  /* Dorado suave para bordes */
+    --color-fondo: #f9f6f2;         /* Fondo cálido crema */
+    --color-blanco: #ffffff;        /* Fondo tarjetas */
+    --color-texto: #333333;         /* Texto de lectura */
+    --color-texto-suave: #666666;   /* Texto secundario */
+    --fuente-titulos: 'Cormorant Garamond', Georgia, serif;
+    --fuente-textos: 'Montserrat', sans-serif;
+    --sombra-suave: 0 10px 30px rgba(8, 29, 58, 0.05);
+    --sombra-hover: 0 15px 35px rgba(156, 136, 102, 0.15);
+    --radio-tarjeta: 12px;
+}
+
+/* 1. RESET Y ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-textos);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* 2. TIPOGRAFÍA Y ENCABEZADOS */
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-primario);
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 3.5rem 0 1.5rem 0;
+    font-weight: 600;
+    position: relative;
+}
+
+h2 span {
+    display: block;
+    font-family: var(--fuente-textos);
+    font-size: 0.95rem;
+    color: var(--color-texto-suave);
+    font-weight: 400;
+    margin-top: 0.4rem;
+    letter-spacing: 0px;
+}
+
+/* 3. HEADER Y TÍTULO PRINCIPAL */
+header {
+    background-color: var(--color-fondo);
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    text-align: center;
+}
+
+.titulo {
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.titulo span {
+    display: block;
+    font-size: 1rem;
+    font-family: var(--fuente-textos);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-dorado);
+    margin-top: 0.3rem;
+}
+
+/* 4. BARRA DE NAVEGACIÓN */
+.nav-bg {
+    background-color: var(--color-primario);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navegacion-principal {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 0.9rem 1rem;
+}
+
+.navegacion-principal a {
+    color: #e4dbcf;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navegacion-principal a:hover {
+    color: var(--color-blanco);
+}
+
+.navegacion-principal a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-dorado);
+    transition: width 0.3s ease;
+}
+
+.navegacion-principal a:hover::after {
+    width: 100%;
+}
+
+/* 5. SECCIÓN HERO */
+.hero {
+    background-image: linear-gradient(
+        rgba(249, 246, 242, 0), 
+        rgba(249, 246, 242, 0.9)
+    ), url('../IMG/hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 5rem 1.5rem 4rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(156, 136, 102, 0.2);
+}
+
+.contenido-hero {
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.subtitulo {
+    font-size: 2.1rem;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.hero .icono {
+    margin: 1.2rem auto 0.5rem auto;
+}
+
+.place {
+    font-size: 0.95rem;
+    color: var(--color-texto-suave);
+    letter-spacing: 0.5px;
+}
+
+/* 6. BOTONES */
+.boton {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.boton:hover {
+    background-color: var(--color-dorado);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(156, 136, 102, 0.3);
+}
+
+/* 7. CONTENEDOR PRINCIPAL */
+.contenedor {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 4rem 1.5rem;
+}
+
+/* 8. SISTEMAS DE GRID Y TARJETAS (Servicios, Experiencias, Galería, etc.) */
+.experiencias,
+.servicios,
+.elecciones,
+.citas,
+.opiniones,
+.extensiones,
+.Naturales,
+.complementos,
+.recomendaciones,
+.cuidados,
+.politicas,
+.estilos,
+.tendencias,
+.transformaciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Tarjeta Base Compartida */
+.experiencia,
+.servicio,
+.elecion,
+.cita,
+.opinion,
+.extension,
+.natural,
+.retoque,
+.complemento,
+.recomendacion,
+.cuidado,
+.politica,
+.estilo,
+.tendencia,
+.transformacion {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio-tarjeta);
+    padding: 2rem 1.5rem;
+    box-shadow: var(--sombra-suave);
+    border: 1px solid rgba(207, 194, 173, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.experiencia:hover,
+.servicio:hover,
+.elecion:hover,
+.cita:hover,
+.opinion:hover,
+.extension:hover,
+.natural:hover,
+.retoque:hover,
+.complemento:hover,
+.cuidado:hover,
+.estilo:hover,
+.tendencia:hover,
+.transformacion:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover);
+    border-color: var(--color-dorado-claro);
+}
+
+/* Ajustes de Títulos y Textos en Tarjetas */
+.contenedor section h3 {
+    font-size: 1.4rem;
+    color: var(--color-primario);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.contenedor section p {
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 1rem;
+}
+
+/* ÍCONOS SVG */
+.icono {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.icono svg {
+    stroke: var(--color-dorado);
+    transition: transform 0.3s ease;
+}
+
+.experiencia:hover .icono svg,
+.elecion:hover .icono svg,
+.cita:hover .icono svg {
+    transform: scale(1.1);
+}
+
+/* IMÁGENES DENTRO DE TARJETAS */
+.contenedor img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* LISTAS DE DETALLES EN SERVICIOS/CUIDADOS */
+.contenedor ul {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    padding: 0;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    color: var(--color-texto);
+    border-top: 1px dashed var(--color-dorado-claro);
+    padding-top: 1rem;
+}
+
+.contenedor ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.contenedor ul li::before {
+    content: "•";
+    color: var(--color-dorado);
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+/* PRECIOS DE SERVICIOS */
+.precio {
+    margin-top: auto;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(207, 194, 173, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.precio span {
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.precio strong {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    color: var(--color-primario);
+    font-weight: 600;
+}
+
+/* OPINIONES / RESEÑAS */
+.opinion p {
+    font-style: italic;
+    position: relative;
+}
+
+.opinion .icono svg {
+    fill: #e8d7b8;
+    stroke: var(--color-dorado);
+}
+
+/* 9. FORMULARIO DE CITAS */
+.formulario {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio-tarjeta);
+    box-shadow: var(--sombra-suave);
+    border: 1px solid rgba(207, 194, 173, 0.4);
+    max-width: 650px;
+    margin: 2rem auto 0 auto;
+    padding: 2.5rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    color: var(--color-primario);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.contenedor-campos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.campo label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primario);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.input-text {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #dcd5cb;
+    border-radius: 6px;
+    font-family: var(--fuente-textos);
+    font-size: 0.9rem;
+    outline: none;
+    background-color: #faf8f5;
+    transition: all 0.3s ease;
+}
+
+.input-text:focus {
+    border-color: var(--color-dorado);
+    background-color: var(--color-blanco);
+    box-shadow: 0 0 0 3px rgba(156, 136, 102, 0.15);
+}
+
+.enviar {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.enviar .boton {
+    width: 100%;
+    padding: 1rem;
+}
+
+/* 10. FOOTER Y REDES SOCIALES */
+footer {
+    background-color: var(--color-primario);
+    padding: 2.5rem 1rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+footer p {
+    color: #e4dbcf;        
+    font-size: 0.85rem;    
+    margin-top: 1.5rem;    
+    letter-spacing: 0.5px;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.redes a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(156, 136, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.redes a svg {
+    stroke: #d6c6ac;
+}
+
+.redes a:hover {
+    background-color: var(--color-dorado);
+    transform: translateY(-3px);
+}
+
+.redes a:hover svg {
+    stroke: var(--color-blanco);
+}
+
+/* 11. RESPONSIVE / ADAPTABILIDAD MÓVIL */
+@media (max-width: 768px) {
+    .navegacion-principal {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+    }
+    
+    .navegacion-principal a {
+        font-size: 0.8rem;
+    }
+
+    .titulo {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .formulario {
+        padding: 1.5rem;
+    }
+}
